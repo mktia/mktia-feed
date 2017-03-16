@@ -5,7 +5,6 @@ import os
 import tweepy
 import urllib2
 
-
 consumer_key = os.environ['ck']
 consumer_secret = os.environ['cs']
 access_token = os.environ['at']
@@ -15,11 +14,8 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
-feed_url_all = 'http://mikuta.main.jp/feed/data.html'
-
 def check_post(url, list_name):
 	res = feedparser.parse(url)
-	print(res)
 	title = res.entries[0].title
 	link = res.entries[0].link
 	list = api.get_list(owner_screen_name='_mktia', slug=list_name)
