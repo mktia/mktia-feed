@@ -14,7 +14,6 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 feed_url_all = 'http://mikuta.main.jp/feed/data.html'
-data = {}
 
 def check_post(url, list_name):
 	res = feedparser.parse(url)
@@ -32,7 +31,8 @@ def check_post(url, list_name):
 	
 			
 if __name__ == '__main__':
-	data = urllib2.urlopen(feed_url_all).read()
+	#data = urllib2.urlopen(feed_url_all).read()
+	data = api.get_list(owner_screen_name='_mktia', slug='mktiafeed').description
 	data = ast.literal_eval(data)
 	for i in range(len(data['site'])):
 		print(data['site'][i], data['list'][i])
