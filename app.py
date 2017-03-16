@@ -5,19 +5,12 @@ import os
 import tweepy
 import urllib2
 
-###############################################
-consumer_key = 'osJDCMZaKvbTKbSiHniC2Uyrl'
-consumer_secret = 'T6ya6o7evcnc0DtETOjxmCvfJI6VgBhzXr0eLBlCy3lGsK2Mts'
-access_token = '1131457412-RbZrvbB00tvopPNES6Zrbha9bZ57zTyqcM8TlAy'
-access_token_secret = 'KoHMWNxxrwDLqQeoaGX40vJM3W6ZlgfXXRP3SEGFVTCJi'
-###############################################
 
-"""
 consumer_key = os.environ['ck']
 consumer_secret = os.environ['cs']
 access_token = os.environ['at']
 access_token_secret = os.environ['as']
-"""
+
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
