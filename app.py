@@ -34,6 +34,6 @@ if __name__ == '__main__':
 	data = ast.literal_eval(data)
 	for i in range(len(data['site'])):
 		print(data['site'][i], data['list'][i])
-		check_post('http://' + data['site'][i] + '/feed', data['list'][i])
+		check_post(data['site'][i] + '/feed', data['list'][i])
 	
 	print('---------- finished! ----------')
