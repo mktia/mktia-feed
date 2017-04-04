@@ -4,6 +4,7 @@ import feedparser
 import os
 import tweepy
 import urllib2
+import ssl
 
 consumer_key = os.environ['ck']
 consumer_secret = os.environ['cs']
@@ -15,6 +16,8 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 def check_post(url, list_name):
+	if hasattr(ssl, '_create_unverified_context'):
+		ssl._create_default_https_context = ssl._create_unverified_context
 	res = feedparser.parse(url)
 	title = res.entries[0].title
 	link = res.entries[0].link
